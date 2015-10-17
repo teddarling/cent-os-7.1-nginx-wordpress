@@ -79,7 +79,12 @@ sudo yum -y update
 echo "Install NGINX build dependencies"
 sudo yum -y install gc gcc gcc-c++ pcre-devel zlib-devel make wget openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel gperftools gperftools-devel libatomic_ops-devel perl-ExtUtils-Embed
 
-
+# Create the nginx user if it doesn't exist
+if ! id -u nginx >/dev/null 2>&1; then
+  echo "Adding nginx user"
+  useradd "$nginx_user"
+  usermod -s /sbin/nologin "$nginx_user"
+fi
 
 echo "$nginx_file"
 echo "$cache_purge_url"
