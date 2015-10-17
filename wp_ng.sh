@@ -44,37 +44,41 @@ if [ ! -f "$NGINX_FILE" ]; then
   wget "$NGINX_URL"
 fi
 
-# If the nginx directory for extraction exists, delete it.
-if [ -d "$NGINX_VERSION" ]; then
-  echo "Removing NGINX directory"
-  sudo rm -rf "$NGINX_VERSION"
-
-  # Extract the NGINX file.
-  echo "Extracting NGINX"
-  sudo tar -xvzf "$NGINX_FILE"
-
-  # Delete the NGINX file (don't need it anymore)
-  sudo rm -f "$NGINX_FILE"
-fi
-
 # Download NGINX cache purge, if the file doesn't exist.
 if [ ! -f "$NGINX_CACHE_PURGE_FILE" ]; then
   echo "Downloading nginx cache purge from ($NGINX_CACHE_PURGE_URL)"
   wget "$NGINX_CACHE_PURGE_URL"
 fi
 
+
+
+# If the nginx directory for extraction exists, delete it.
+if [ -d "$NGINX_VERSION" ]; then
+  echo "Removing NGINX directory"
+  sudo rm -rf "$NGINX_VERSION"
+fi
+
+# Extract the NGINX file.
+echo "Extracting NGINX"
+sudo tar -xvzf "$NGINX_FILE"
+
+# Delete the NGINX file (don't need it anymore)
+sudo rm -f "$NGINX_FILE"
+
+
+
 # If the nginx cache purge directory for extraction exists, delete it.
 if [ -d "$NGINX_CACHE_PURGE_VERSION" ]; then
   echo "Removing NGINX cache purge directory"
   sudo rm -rf "$NGINX_CACHE_PURGE_VERSION"
-
-  # Extract the NGINX file.
-  echo "Extracting NGINX cache purge"
-  sudo tar -xvzf "$NGINX_CACHE_PURGE_FILE"
-
-  # Delete the NGINX cache purge file (don't need it anymore)
-  sudo rm -f "$NGINX_CACHE_PURGE_FILE"
 fi
+
+# Extract the NGINX file.
+echo "Extracting NGINX cache purge"
+sudo tar -xvzf "$NGINX_CACHE_PURGE_FILE"
+
+# Delete the NGINX cache purge file (don't need it anymore)
+sudo rm -f "$NGINX_CACHE_PURGE_FILE"
 
 # move to the directory created by extracting the NGINX file.
 echo "Move to NGINX directory"
