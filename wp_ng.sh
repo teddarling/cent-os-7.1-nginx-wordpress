@@ -52,7 +52,7 @@ fi
 
 # Extract the NGINX file.
 echo "Extracting NGINX"
-tar -xvzf $NGINX_FILE
+sudo tar -xvzf $NGINX_FILE
 
 # Download NGINX cache purge, if the file doesn't exist.
 if [ ! -f "$NGINX_CACHE_PURGE_FILE" ]; then
@@ -68,7 +68,7 @@ fi
 
 # Extract the NGINX cache purge file.
 echo "Extracting NGINX cache purge"
-tar -xvzf $NGINX_CACHE_PURGE_FILE
+sudo tar -xvzf $NGINX_CACHE_PURGE_FILE
 
 # move to the directory created by extracting the NGINX file.
 echo "Move to NGINX directory"
