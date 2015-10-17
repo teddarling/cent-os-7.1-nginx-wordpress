@@ -13,6 +13,12 @@ fi
 echo "Move to build directory"
 cd $BUILD_DIR
 
+# Update Yum
+sudo yum update
+
+# Install wget
+yum install wget
+
 # Download NGINX
 wget nginx.org/download/nginx-1.8.0.tar.gz
 
