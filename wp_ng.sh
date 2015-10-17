@@ -21,6 +21,8 @@ cd $BUILD_DIR
 echo "Update Yum"
 sudo yum -y update
 
+sudo yum list installed wget
+
 # Install wget
 if ! sudo yum list installed wget; then
   echo "Install wget"
@@ -39,3 +41,16 @@ if ! id -u nginx >/dev/null 2>&1; then
   useradd nginx
   usermod -s /sbin/nologin nginx
 fi
+
+# If the nginx directory for extraction exists, delete it.
+if [ -d "$NGINX_VERSION"]; then
+  sudo rm -rf "$NGINX_VERSION"
+fi
+
+# Extract the NGINX file.
+tar -xvzf $NGINX_FILE
+
+# move to the directory created by extracting the NGINX file.
+cd "$NGINX_VERSION"
+
+sudo ls -la
