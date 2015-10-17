@@ -14,12 +14,12 @@ NGINX_CACHE_PURGE_URL="labs.frickle.com/files/$NGINX_CACHE_PURGE_FILE"
 # If the build directory doesn't exist, create it
 if [ ! -d "$BUILD_DIR" ]; then
   echo "Create build directory"
-  mkdir -pv $BUILD_DIR
+  mkdir -pv "$BUILD_DIR"
 fi
 
 # move to the build directory
 echo "Move to build directory: $BUILD_DIR"
-cd $BUILD_DIR
+cd "$BUILD_DIR"
 
 # Update Yum
 echo "Update Yum"
@@ -48,11 +48,14 @@ fi
 if [ -d "$NGINX_VERSION" ]; then
   echo "Removing NGINX directory"
   sudo rm -rf "$NGINX_VERSION"
-fi
 
-# Extract the NGINX file.
-echo "Extracting NGINX"
-sudo tar -xvzf $NGINX_FILE
+  # Extract the NGINX file.
+  echo "Extracting NGINX"
+  sudo tar -xvzf "$NGINX_FILE"
+
+  # Delete the NGINX file (don't need it anymore)
+  sudo rm -f "$NGINX_FILE"
+fi
 
 # Download NGINX cache purge, if the file doesn't exist.
 if [ ! -f "$NGINX_CACHE_PURGE_FILE" ]; then
@@ -64,11 +67,14 @@ fi
 if [ -d "$NGINX_CACHE_PURGE_VERSION" ]; then
   echo "Removing NGINX cache purge directory"
   sudo rm -rf "$NGINX_CACHE_PURGE_VERSION"
-fi
 
-# Extract the NGINX cache purge file.
-echo "Extracting NGINX cache purge"
-sudo tar -xvzf $NGINX_CACHE_PURGE_FILE
+  # Extract the NGINX file.
+  echo "Extracting NGINX cache purge"
+  sudo tar -xvzf "$NGINX_CACHE_PURGE_FILE"
+
+  # Delete the NGINX cache purge file (don't need it anymore)
+  sudo rm -f "$NGINX_CACHE_PURGE_FILE"
+fi
 
 # move to the directory created by extracting the NGINX file.
 echo "Move to NGINX directory"
