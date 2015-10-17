@@ -137,6 +137,5 @@ echo "Making NGINX"
 sudo make && make install
 
 
-echo "$nginx_file"
-echo "$cache_purge_url"
-sudo ls -la
+# Start the service
+sudo systemctl start nginx
