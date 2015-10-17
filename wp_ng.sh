@@ -22,8 +22,10 @@ echo "Update Yum"
 sudo yum -y update
 
 # Install wget
-echo "Install wget"
-sudo yum -y install wget
+if ! sudo yum list installed wget
+  echo "Install wget"
+  sudo yum -y install wget
+fi
 
 # Download NGINX, if the file doesn't exist.
 if [ ! -f "$NGINX_FILE" ]; then
