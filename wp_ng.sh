@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build directory that we are going to work with.
-BUILD_DIR="$HOME/wp_ng"
+BUILD_DIR="wp_ng"
 
 # If the build directory doesn't exist, create it
 if [ ! -d "$BUILD_DIR" ]; then
