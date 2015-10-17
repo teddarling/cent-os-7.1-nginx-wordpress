@@ -21,8 +21,6 @@ cd $BUILD_DIR
 echo "Update Yum"
 sudo yum -y update
 
-sudo yum list installed wget
-
 # Install wget
 if ! sudo yum list installed wget; then
   echo "Install wget"
