@@ -116,6 +116,10 @@ sudo ./configure --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/et
 echo "Making NGINX"
 sudo make && make install
 
+# Download the nginx.service file so that we can start NGINX
+sudo wget -O /lib/systemd/system/nginx.service https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx.service
+
+
 echo "$nginx_file"
 echo "$cache_purge_url"
 sudo ls -la
