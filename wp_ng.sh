@@ -2,7 +2,8 @@
 
 # Build directory that we are going to work with.
 BUILD_DIR="wp_ng"
-NGINX_FILE="nginx-1.8.0.tar.gz"
+NGINX_VERSION="nginx-1.8.0"
+NGINX_FILE="$NGINX_VERSION.tar.gz"
 
 
 # If the build directory doesn't exist, create it
