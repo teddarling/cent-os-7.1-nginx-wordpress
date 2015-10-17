@@ -113,11 +113,18 @@ sudo wget -O /lib/systemd/system/nginx.service https://raw.githubusercontent.com
 
 # Create required directories
 sudo mkdir -pv /var/cache/nginx
-#sudo mkdir -pv /var/cache/nginx/client_temp
-#sudo mkdir -pv /var/cache/nginx/fastcgi_temp
-#sudo mkdir -pv /var/cache/nginx/proxy_temp
-#sudo mkdir -pv /var/cache/nginx/scgi_temp
-#sudo mkdir -pv /var/cache/nginx/uwsgi_temp
+sudo mkdir -pv /var/cache/nginx/client_temp
+sudo mkdir -pv /var/cache/nginx/fastcgi_temp
+sudo mkdir -pv /var/cache/nginx/proxy_temp
+sudo mkdir -pv /var/cache/nginx/scgi_temp
+sudo mkdir -pv /var/cache/nginx/uwsgi_temp
+
+# Change Permissions for directories to user created for nginx
+sudo chown "$nginx_user" /var/cache/nginx/client_temp
+sudo chown "$nginx_user" /var/cache/nginx/fastcgi_temp
+sudo chown "$nginx_user" /var/cache/nginx/proxy_temp
+sudo chown "$nginx_user" /var/cache/nginx/scgi_temp
+sudo chown "$nginx_user" /var/cache/nginx/uwsgi_temp
 
 # Configure the build
 echo "Configuring NGINX"
