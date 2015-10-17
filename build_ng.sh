@@ -65,9 +65,6 @@ nginx_url="nginx.org/download/$nginx_file"
 cache_purge_file="$cache_purge_version.tar.gz"
 cache_purge_url="labs.frickle.com/files/$cache_purge_file"
 
-# Delete the build directory and start from scratch
-sudo rm -rf $build_dir
-
 # Add the latest version of the repo
 rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 
@@ -85,6 +82,19 @@ if ! id -u nginx >/dev/null 2>&1; then
   useradd "$nginx_user"
   usermod -s /sbin/nologin "$nginx_user"
 fi
+
+# Delete the build directory and start from scratch
+sudo rm -rf $build_dir
+
+# Create the build dir.
+echo "Create build directory: $build_dir"
+mkdir -pv $build_dir
+
+# go to the build directory
+echo "Move to build directory: $build_dir"
+cd "$build_dir"
+
+
 
 echo "$nginx_file"
 echo "$cache_purge_url"
