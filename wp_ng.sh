@@ -44,13 +44,16 @@ fi
 
 # If the nginx directory for extraction exists, delete it.
 if [ -d "$NGINX_VERSION" ]; then
+  echo "Removing NGINX directory"
   sudo rm -rf "$NGINX_VERSION"
 fi
 
 # Extract the NGINX file.
+echo "Extracting NGINX"
 tar -xvzf $NGINX_FILE
 
 # move to the directory created by extracting the NGINX file.
+echo "Move to NGINX directory"
 cd "$NGINX_VERSION"
 
 sudo ls -la
