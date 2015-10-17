@@ -2,6 +2,8 @@
 
 ## Build NGINX
 
+- update
+
 ## Install MariaDB
 
 ## Install HHVM
