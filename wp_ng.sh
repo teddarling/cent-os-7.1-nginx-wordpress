@@ -2,6 +2,7 @@
 
 # Build directory that we are going to work with.
 BUILD_DIR="wp_ng"
+NGINX_FILE="nginx-1.8.0.tar.gz"
 
 
 # If the build directory doesn't exist, create it
@@ -23,7 +24,8 @@ echo "Install wget"
 sudo yum -y install wget
 
 # Download NGINX
-wget nginx.org/download/nginx-1.8.0.tar.gz
+echo "Downloading NGINX from ($NGINX_FILE)"
+wget "nginx.org/download/$NGINX_FILE"
 
 # Create the nginx user if it doesn't exist
 if ! id -u nginx >/dev/null 2>&1; then
