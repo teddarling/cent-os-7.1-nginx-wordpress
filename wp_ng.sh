@@ -3,6 +3,7 @@
 # Build directory that we are going to work with.
 BUILD_DIR="wp_ng"
 
+
 # If the build directory doesn't exist, create it
 if [ ! -d "$BUILD_DIR" ]; then
   echo "Create build directory"
@@ -10,7 +11,7 @@ if [ ! -d "$BUILD_DIR" ]; then
 fi
 
 # move to the build directory
-echo "Move to build directory"
+echo "Move to build directory: $BUILD_DIR"
 cd $BUILD_DIR
 
 # Update Yum
