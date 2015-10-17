@@ -139,3 +139,9 @@ sudo make && make install
 
 # Start the service
 sudo systemctl start nginx
+
+
+# Autostart Nginx on boot
+sudo systemctl enable nginx
+
+
