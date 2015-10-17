@@ -43,7 +43,7 @@ if ! id -u nginx >/dev/null 2>&1; then
 fi
 
 # If the nginx directory for extraction exists, delete it.
-if [ -d "$NGINX_VERSION"]; then
+if [ -d "$NGINX_VERSION" ]; then
   sudo rm -rf "$NGINX_VERSION"
 fi
 
