@@ -14,7 +14,7 @@ echo "Move to build directory"
 cd $BUILD_DIR
 
 # Download NGINX
-# wget nginx.org/download/nginx-1.8.0.tar.gz
+wget nginx.org/download/nginx-1.8.0.tar.gz
 
 # Create the nginx user if it doesn't exist
 if ! id -u nginx >/dev/null 2>&1; then
