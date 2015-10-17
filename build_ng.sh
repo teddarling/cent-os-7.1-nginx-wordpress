@@ -88,13 +88,26 @@ sudo rm -rf $build_dir
 
 # Create the build dir.
 echo "Create build directory: $build_dir"
-mkdir -pv $build_dir
+sudo mkdir -pv $build_dir
 
 # go to the build directory
 echo "Move to build directory: $build_dir"
 cd "$build_dir"
 
+# Download files used for building
+echo "Downloading files"
+wget "$nginx_url"
+wget "$cache_purge_url"
 
+# Extract downloaded files
+echo "Extracting files"
+sudo tar -xvzf "$nginx_file"
+sudo tar -xvzf "$cache_purge_file"
+
+# move into the NGINX directory so that we can configure and build NGINX
+echo "Moving into NGINX directory for building"
+cd "$nginx_version"
 
 echo "$nginx_file"
 echo "$cache_purge_url"
+sudo ls -la
