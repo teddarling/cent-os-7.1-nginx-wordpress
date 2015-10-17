@@ -33,9 +33,9 @@ echo "Install wget"
 sudo yum -y install wget
 
 # Install development tools
-sudo yum -y group install "Development Tools"
-sudo yum -y install pcre-devel zlib-devel openssl-devel
-
+#sudo yum -y group install "Development Tools"
+#sudo yum -y install pcre-devel zlib-devel openssl-devel
+sudo yum -y install gc gcc gcc-c++ pcre-devel zlib-devel make wget openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel gperftools gperftools-devel libatomic_ops-devel perl-ExtUtils-Embed
 
 # Create the nginx user if it doesn't exist
 if ! id -u nginx >/dev/null 2>&1; then
