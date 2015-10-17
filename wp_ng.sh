@@ -21,6 +21,9 @@ fi
 echo "Move to build directory: $BUILD_DIR"
 cd "$BUILD_DIR"
 
+# Update some repos
+rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm 
+
 # Update Yum
 echo "Update Yum"
 sudo yum -y update
