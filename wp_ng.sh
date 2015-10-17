@@ -22,7 +22,7 @@ echo "Move to build directory: $BUILD_DIR"
 cd "$BUILD_DIR"
 
 # Update some repos
-rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm 
+rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 
 # Update Yum
 echo "Update Yum"
@@ -34,7 +34,8 @@ sudo yum -y install wget
 
 # Install development tools
 sudo yum -y group install "Development Tools"
-sudo yum -y pcre-devel zlib-devel openssl-devel
+sudo yum -y install pcre-devel zlib-devel openssl-devel
+
 
 # Create the nginx user if it doesn't exist
 if ! id -u nginx >/dev/null 2>&1; then
