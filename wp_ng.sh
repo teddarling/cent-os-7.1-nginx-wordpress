@@ -22,7 +22,7 @@ echo "Update Yum"
 sudo yum -y update
 
 # Install wget
-if ! sudo yum list installed wget
+if ! sudo yum list installed wget; then
   echo "Install wget"
   sudo yum -y install wget
 fi
