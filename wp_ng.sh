@@ -56,8 +56,8 @@ tar -xvzf $NGINX_FILE
 
 # Download NGINX cache purge, if the file doesn't exist.
 if [ ! -f "$NGINX_CACHE_PURGE_FILE" ]; then
-  echo "Downloading nginx from ($NGINX_CACHE_PURGE_FILE)"
-  wget "$NGINX_CACHE_PURGE_FILE"
+  echo "Downloading nginx cache purge from ($NGINX_CACHE_PURGE_URL)"
+  wget "$NGINX_CACHE_PURGE_URL"
 fi
 
 # If the nginx cache purge directory for extraction exists, delete it.
