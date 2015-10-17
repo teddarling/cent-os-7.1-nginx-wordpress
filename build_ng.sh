@@ -114,6 +114,7 @@ sudo ./configure --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/et
 
 # Make the build
 echo "Making NGINX"
+sudo make && make install
 
 echo "$nginx_file"
 echo "$cache_purge_url"
