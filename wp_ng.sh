@@ -25,11 +25,12 @@ cd "$BUILD_DIR"
 echo "Update Yum"
 sudo yum -y update
 
-# Install wget
-if ! sudo yum list installed wget; then
-  echo "Install wget"
-  sudo yum -y install wget
-fi
+# Install wget, will continue if already installed
+echo "Install wget"
+sudo yum -y install wget
+
+# Install development tools
+sudo yum -y group install "Development Tools"
 
 # Create the nginx user if it doesn't exist
 if ! id -u nginx >/dev/null 2>&1; then
