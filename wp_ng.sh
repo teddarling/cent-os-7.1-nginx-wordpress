@@ -15,7 +15,7 @@ cd $BUILD_DIR
 
 # Update Yum
 echo "Update Yum"
-sudo yum update
+sudo yum -y update
 
 # Install wget
 echo "Install wget"
