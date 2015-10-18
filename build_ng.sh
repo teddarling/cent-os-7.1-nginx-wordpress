@@ -144,4 +144,5 @@ sudo systemctl start nginx
 # Autostart Nginx on boot
 sudo systemctl enable nginx
 
-
+# Create a directory for additional config files (for sites)
+sudo mkdir -p /etc/nginx/conf.d
