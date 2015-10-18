@@ -160,4 +160,7 @@ sudo chown nginx:nginx /usr/share/nginx/default/public_html
 # Copy a default site nginx file
 sudo wget -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/default.conf
 
+# Copy the index.html file created when building NGINX to the default site folder
+sudo cp /etc/nginx/html/index.html /usr/share/nginx/default/public_html
+
 # Copy the default nginx.conf file that we want to use. What comes with the build is horrible.
