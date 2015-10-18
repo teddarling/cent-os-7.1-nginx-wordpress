@@ -146,3 +146,18 @@ sudo systemctl enable nginx
 
 # Create a directory for additional config files (for sites)
 sudo mkdir -p /etc/nginx/conf.d
+
+# Create some directories for a default site.
+sudo mkdir -pv /usr/share/nginx
+sudo mkdir -pv /usr/share/nginx/default
+sudo mkdir -pv /usr/share/nginx/default/public_html
+sudo mkdir -pv /usr/share/nginx/default/logs
+
+# Change ownership of public_html folder
+sudo chown nginx:nginx /usr/share/nginx/default/public_html
+
+
+# Copy a default site nginx file
+sudo wget -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/default.conf
+
+# Copy the default nginx.conf file that we want to use. What comes with the build is horrible.
