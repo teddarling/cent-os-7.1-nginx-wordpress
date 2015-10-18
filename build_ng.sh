@@ -164,3 +164,6 @@ sudo wget -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/te
 sudo cp /etc/nginx/html/index.html /usr/share/nginx/default/public_html
 
 # Copy the default nginx.conf file that we want to use. What comes with the build is horrible.
+
+# Delete the build directory to clean up after ourself.
+sudo rm -rf $build_dir
