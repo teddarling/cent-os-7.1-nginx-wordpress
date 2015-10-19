@@ -26,7 +26,7 @@ EOF
 }
 
 # Parse the arguments
-while getopts "hc:d:n:u:m:" OPTION
+while getopts "hc:d:m:n:u:" OPTION
 do
   case $OPTION in
     h)
