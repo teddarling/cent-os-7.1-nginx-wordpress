@@ -167,7 +167,7 @@ sudo cp /etc/nginx/html/index.html /usr/share/nginx/default/public_html
 sudo wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx.conf
 
 # Replace the user in the nginx.conf file with the user that the caller of the script passes in.
-sudo sed 's/user nginx/user '$nginx_user'/' /etc/nginx/nginx.conf
+sudo sed -i 's/user nginx/user '$nginx_user'/' /etc/nginx/nginx.conf
 
 # Restart nginx to use the new conf files.
 sudo systemctl restart nginx
