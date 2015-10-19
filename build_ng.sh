@@ -187,7 +187,9 @@ sudo rm -rf $build_dir
 # set default value if MySQL is installed
 mysql_installed=0
 
-type mysql >/dev/null 2>&1 && echo "MySQL present." || echo "MySQL not present."
+type mysql >/dev/null 2>&1 && mysql_installed=1 || mysql_installed=0
+
+echo "$mysql_installed"
 
 # Now I want to install MariaDB
 echo "Installing MariaDB"
