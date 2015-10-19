@@ -18,6 +18,7 @@ cat << EOF
     -h      Show this message
     -c      NGINX cache purge version to build(EX: 2.3)
     -d      Directory to download and build NGINX
+    -m      Password for MariaDB (MySQL)
     -n      NGINX version (EX: 1.8.0)
     -u      User to create for NGINX
     ?       Show this message
