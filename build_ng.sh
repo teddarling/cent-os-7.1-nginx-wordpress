@@ -38,6 +38,9 @@ do
     d)  # Directory to build in.
       build_dir="$OPTARG"
       ;;
+    m) # MariaDB Password
+      maria_password="$OPTARG"
+      ;;
     n) # Version of NGINX to download.
       nginx_version="nginx-$OPTARG"
       ;;
@@ -52,7 +55,7 @@ do
 done
 
 # If empty arguments given, show usage of script
-if [[ -z "$build_dir" ]] || [[ -z "$nginx_version" ]] || [[ -z "$cache_purge_version" ]] || [[ -z "$nginx_user" ]]
+if [[ -z "$build_dir" ]] || [[ -z "$nginx_version" ]] || [[ -z "$cache_purge_version" ]] || [[ -z "$nginx_user" ]]  || [[ -z "$maria_password" ]]
 then
   usage
   exit 1

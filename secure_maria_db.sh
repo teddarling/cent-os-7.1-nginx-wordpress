@@ -17,21 +17,21 @@ cat << EOF
 
     OPTIONS:
         -h      Show this message
-        -u      User to create for NGINX
+        -m      User to create for MariaDB
         ?       Show this message
 EOF
 }
 
 # Parse the arguments
-while getopts "hu:" OPTION
+while getopts "hm:p:" OPTION
 do
     case $OPTION in
         h)
             usage
             exit 1
             ;;
-        u) # User to assign to the build
-            nginx_user="$OPTARG"
+        m) # User to assign to the build
+            maria_password="$OPTARG"
             ;;
         ?)
             usage
@@ -41,7 +41,7 @@ do
 done
 
 # If empty arguments given, show usage of script
-if [[ -z "$nginx_user" ]]
+if [[ -z "$maria_password" ]]
 then
     usage
     exit 1
@@ -49,3 +49,6 @@ fi
 
 # Install MariaDB from yum
 echo 'Securing MariaDB'
+sudo yum -y install expect
+
+
