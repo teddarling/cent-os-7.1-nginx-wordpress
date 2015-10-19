@@ -192,15 +192,15 @@ type mysql >/dev/null 2>&1 && mysql_installed=1 || mysql_installed=0
 echo "$mysql_installed"
 
 # Now I want to install MariaDB
-echo "Installing MariaDB"
-sudo wget -O /etc/yum.repos.d/MariaDB.repo http://mariadb.if-not-true-then-false.com/centos/$(rpm -E %centos)/$(uname -i)/10_1
-sudo yum -y install mariadb-server mariadb
+#echo "Installing MariaDB"
+#sudo wget -O /etc/yum.repos.d/MariaDB.repo http://mariadb.if-not-true-then-false.com/centos/$(rpm -E %centos)/$(uname -i)/10_1
+#sudo yum -y install mariadb-server mariadb
 
 # Start MariaDB
-sudo systemctl start mariadb
+#sudo systemctl start mariadb
 
 # Secure MariaDB
-echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/secure_maria_db.sh | sudo bash -s -- -m $maria_password -`"
+#echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/secure_maria_db.sh | sudo bash -s -- -m $maria_password -`"
 
 
 # Run a script with expect to secure MariaDB
