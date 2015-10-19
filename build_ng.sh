@@ -166,6 +166,7 @@ sudo cp /etc/nginx/html/index.html /usr/share/nginx/default/public_html
 # Copy the default nginx.conf file that we want to use. What comes with the build is horrible.
 sudo wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx.conf
 
+
 # Restart nginx to use the new conf files.
 sudo systemctl restart nginx
 
