@@ -188,6 +188,9 @@ sudo rm -rf $build_dir
 echo "Installing MariaDB"
 sudo yum -y install mariadb-server mariadb
 
+# Start MariaDB
+sudo systemctl start mariadb
+
 # Secure MariaDB
 echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/secure_maria_db.sh | sudo bash -s -- -m $maria_password -`"
 
