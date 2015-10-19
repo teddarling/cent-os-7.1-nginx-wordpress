@@ -189,7 +189,7 @@ echo "Installing MariaDB"
 sudo yum -y install mariadb-server mariadb
 
 # Secure MariaDB
-echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/secure_maria_db.sh | sudo bash -s -- -u $nginx_user -`"
+echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/secure_maria_db.sh | sudo bash -s -- -m $maria_password -`"
 
 
 # Run a script with expect to secure MariaDB
