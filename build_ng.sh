@@ -157,6 +157,7 @@ sudo mkdir -pv /usr/share/nginx/default/logs
 sudo chown nginx:nginx /usr/share/nginx/default/public_html
 
 # Run script to install PHP.
+echo "Installing PHP"
 curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/isntall_php.sh | sudo bash -s -- -u "$nginx_user" -
 
 
