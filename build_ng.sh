@@ -179,3 +179,8 @@ sudo systemctl restart nginx
 
 # Delete the build directory to clean up after ourself.
 sudo rm -rf $build_dir
+
+# Now I want to install MariaDB
+sudo yum -y install mariadb-server mariadb
+
+# Run a script with expect to secure MariaDB
