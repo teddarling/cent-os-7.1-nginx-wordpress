@@ -19,6 +19,12 @@ sudo yum -y --enablerepo=webtatic-testing install php70w php70w-opcache php70w-c
 # Change php.ini to work well with NGINX.
 sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
 
+# Change user for php-fpm
+sudo sed -i 's/user = apache/user = nginx/' /etc/php-fpm.d/www.conf
+sudo sed -i 's/group = apache/group = nginx/' /etc/php-fpm.d/www.conf
+sudo sed -i 's/listen.owner = nobody/listen.owner = nginx/' /etc/php-fpm.d/www.conf
+sudo sed -i 's/listen.group = nobody/listen.group = nginx/' /etc/php-fpm.d/www.conf
+
 # Restart php and nginx
 sudo systemctl restart php-fpm
 sudo systemctl restart nginx
