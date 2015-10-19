@@ -191,7 +191,7 @@ type mysql >/dev/null 2>&1 && mysql_installed=1 || mysql_installed=0
 
 echo "$mysql_installed"
 
-if [ "mysql_installed" -eq 1 ]
+if [ "$mysql_installed" -eq 1 ]
 then
     echo "MySQL is installed"
 else
