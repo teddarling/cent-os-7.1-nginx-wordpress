@@ -89,7 +89,17 @@ fi
 # Install MariaDB if it isn't already installed.
 if ! which mysql > /dev/null 2>&1
 then
-    echo "MySQL not installed"
+    echo "Installing MariaDB"
+    sudo yum -y install mariadb-server mariadb
+
+    # Start MariaDB and setup to start on reboot.
+    echo "Starting MySQL and enabling for start at reboot"
+    sudo systemctl start mysql
+    sudo systemctl enable mysql
+
+    # Secure MariaDB
+    echo "Preparing to secure MySQL"
+    echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/secure_maria_db.sh | sudo bash -s -- -m $maria_password -`"
 else
     echo "MySQL installed"
 fi
