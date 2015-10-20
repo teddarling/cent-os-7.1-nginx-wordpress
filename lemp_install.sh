@@ -109,7 +109,20 @@ fi
 # Install PHP-FPM if it isn't already installed.
 if ! which php-fpm > /dev/null 2>&1
 then
-    echo "PHP-FPM not installed"
+    echo "Installing PHP-FPM"
+    sudo yum -y php php-mysql php-fpm
+
+    # Secure PHP a little here.
+    sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
+
+    # Change user for PHP
+    sudo sed -i 's/user = apache/user = nginx/' /etc/php-fpm.d/www.conf
+    sudo sed -i 's/group = apache/group = nginx/' /etc/php-fpm.d/www.conf
+
+    # Start and enable PHP-FPM
+    echo "Starting and enabling PHP-FPM"
+    sudo systemctl start php-fpm
+    sudo systemctl enable php-fpm
 else
     echo "PHP-FPM installed"
 fi
