@@ -56,6 +56,9 @@ fi
 echo "Adding some required repos and updating Yum"
 rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+
+sudo wget -O /etc/yum.repos.d/MariaDB.repo https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/MariaDB.repo
+
 sudo yum -y update
 
 # Install NGINX if it isn't already installed.
@@ -74,6 +77,14 @@ else
     echo "NGINX already installed"
 fi
 
+# Install MariaDB if it isn't already installed.
+if ! which mysql > /dev/null 2>&1
+then
+    echo "MySQL not installed"
+else
+    echo "MySQL installed"
+fi
+
 
 
 # Install PHP-FPM if it isn't already installed.
@@ -82,14 +93,6 @@ then
     echo "PHP-FPM not installed"
 else
     echo "PHP-FPM installed"
-fi
-
-# Install MariaDB if it isn't already installed.
-if ! which mysql > /dev/null 2>&1
-then
-    echo "MySQL not installed"
-else
-    echo "MySQL installed"
 fi
 
 
