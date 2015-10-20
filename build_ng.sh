@@ -250,8 +250,9 @@ else
 
     echo "moving to subfolder of main site."
     sudo mkdir -pv /usr/share/nginx/default/public_html/maria-admin
-    sudo mv phpMyAdmin-4.5.0.2-english/* /usr/share/nginx/default/public_html/maria-admin
+    sudo mv -f phpMyAdmin-4.5.0.2-english/* /usr/share/nginx/default/public_html/maria-admin
 #sudo cp /usr/share/nginx/phpMyAdmin/public_html/phpMyAdmin-4.5.0.2-english /usr/share/nginx/default/public_html/phpmyadmin
+    sudo cp /usr/share/nginx/default/public_html/maria-admin/config.sample.inc.php /usr/share/nginx/default/public_html/maria-admin/config.inc.php
     sudo chown -R nginx:nginx /usr/share/nginx/default/public_html/maria-admin
 
     # Restart nginx to add the new conf file.
