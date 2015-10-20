@@ -199,14 +199,19 @@ else
     sudo wget -O /etc/yum.repos.d/MariaDB.repo http://mariadb.if-not-true-then-false.com/centos/$(rpm -E %centos)/$(uname -i)/10_1
     sudo yum -y install mariadb-server mariadb
 
-    # Start MariaDB
-    sudo systemctl start mariadb
+    # Start MariaDB and setup to start on reboot.
+    sudo systemctl start mysql
+    sudo systemctl enable mysql
 
     # Secure MariaDB
     echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/secure_maria_db.sh | sudo bash -s -- -m $maria_password -`"
 fi
 
+# Setup a server for PHP My Admin, if it the file for it doesn't exist.
+if [ -f /etc/nginx/conf.d/php_my_admin.conf ]; then
+    echo "phpMyAdmin is installed"
+else
+    echo "Installing phpMyAdmin"
+fi
 
 
-
-# Run a script with expect to secure MariaDB
