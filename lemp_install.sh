@@ -66,3 +66,22 @@ else
     echo "nginx installed"
 fi
 
+
+
+# Install PHP-FPM if it isn't already installed.
+if ! which php-fpm > /dev/null 2>&1
+then
+    echo "PHP-FPM not installed"
+else
+    echo "PHP-FPM installed"
+fi
+
+# Install MariaDB if it isn't already installed.
+if ! which mysql > /dev/null 2>&1
+then
+    echo "MySQL not installed"
+else
+    echo "MySQL installed"
+fi
+
+
