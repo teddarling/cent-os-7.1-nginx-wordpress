@@ -226,6 +226,8 @@ else
     sudo mkdir -pv /usr/share/nginx/phpMyAdmin/public_html
     sudo mkdir -pv /usr/share/nginx/phpMyAdmin/logs
 
+    sudo wget -O /etc/nginx/conf.d/php_my_admin.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/php_my_admin.conf
+
     if [ -z "$php_my_admin_port" ]; then
         echo "Set default port of 8181 for phpMyAdmin"
         php_my_admin_port="8181"
