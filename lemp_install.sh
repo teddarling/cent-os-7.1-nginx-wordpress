@@ -51,3 +51,18 @@ then
     usage
     exit 1
 fi
+
+# Load some new Yum repositories
+echo "Adding some required repos and updating Yum"
+rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+sudo yum -y update
+
+# Install NGINX if it isn't already installed.
+if ! which nginx > /dev/null 2>&1
+then
+    echo "Nginx not installed"
+else
+    echo "nginx installed"
+fi
+
