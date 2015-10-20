@@ -233,6 +233,11 @@ else
 
     echo "phpMyAdmin Port: $php_my_admin_port"
     echo "phpMyAdmin Server: $php_my_admin_server"
+
+    echo "Creating phpMyAdmin directories"
+    sudo mkdir -pv /usr/share/nginx/phpMyAdmin
+    sudo mkdir -pv /usr/share/nginx/phpMyAdmin/public_html
+    sudo mkdir -pv /usr/share/nginx/phpMyAdmin/logs
 fi
 
 
