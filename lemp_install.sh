@@ -61,9 +61,17 @@ sudo yum -y update
 # Install NGINX if it isn't already installed.
 if ! which nginx > /dev/null 2>&1
 then
-    echo "Nginx not installed"
+    echo "Installing NGINX"
+
+    sudo yum -y install nginx
+
+    echo "Starting NGINX"
+    sudo systemctl start nginx
+
+    echo "Adding NGINX to start on boot"
+    sudo systemctl enable nginx
 else
-    echo "nginx installed"
+    echo "NGINX already installed"
 fi
 
 
