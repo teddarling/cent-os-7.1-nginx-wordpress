@@ -110,7 +110,7 @@ fi
 if ! which php-fpm > /dev/null 2>&1
 then
     echo "Installing PHP-FPM"
-    sudo yum -y php php-mysql php-fpm
+    sudo yum -y install php php-mysql php-fpm
 
     # Secure PHP a little here.
     sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
