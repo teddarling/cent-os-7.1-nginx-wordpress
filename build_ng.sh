@@ -241,6 +241,8 @@ else
     echo "phpMyAdmin Port: $php_my_admin_port"
     echo "phpMyAdmin Server: $php_my_admin_server"
 
+    # Restart nginx to add the new conf file.
+    sudo systemctl restart nginx
 fi
 
 
