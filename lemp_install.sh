@@ -56,6 +56,15 @@ fi
 echo "Adding some required repos and updating Yum"
 rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+sudo yum -y update
+
+if ! which wget > /dev/null 2>&1
+then
+    echo "Installing wget"
+    sudo yum -y install wget
+else
+    echo "wget is already installed"
+fi
 
 sudo wget -O /etc/yum.repos.d/MariaDB.repo https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/MariaDB.repo
 
