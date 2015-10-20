@@ -248,7 +248,7 @@ else
 
     echo "moving to subfolder of main site."
     sudo mkdir -pv /usr/share/nginx/default/public_html/phpmyadmin
-    sudo cp /usr/share/nginx/default/public_html/phpmyadmin
+    sudo cp /usr/share/nginx/phpMyAdmin/public_html /usr/share/nginx/default/public_html/phpmyadmin
     sudo chown -R nginx:nginx /usr/share/nginx/default/public_html/phpmyadmin
 
     # Restart nginx to add the new conf file.
