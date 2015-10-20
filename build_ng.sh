@@ -222,36 +222,37 @@ else
     echo "Installing phpMyAdmin"
 
     echo "Creating phpMyAdmin directories"
-    sudo mkdir -pv /usr/share/nginx/phpMyAdmin
-    sudo mkdir -pv /usr/share/nginx/phpMyAdmin/public_html
-    sudo mkdir -pv /usr/share/nginx/phpMyAdmin/logs
+#sudo mkdir -pv /usr/share/nginx/phpMyAdmin
+#sudo mkdir -pv /usr/share/nginx/phpMyAdmin/public_html
+#sudo mkdir -pv /usr/share/nginx/phpMyAdmin/logs
 
-    sudo wget -O /etc/nginx/conf.d/php_my_admin.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/php_my_admin.conf
+#sudo wget -O /etc/nginx/conf.d/php_my_admin.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/php_my_admin.conf
 
     echo "Downloading phpMyAdmin and moving to web folder"
-    sudo wget https://files.phpmyadmin.net/phpMyAdmin/4.5.0.2/phpMyAdmin-4.5.0.2-english.tar.gz
-    sudo tar zxvf phpMyAdmin-4.5.0.2-english.tar.gz
+    wget https://files.phpmyadmin.net/phpMyAdmin/4.5.0.2/phpMyAdmin-4.5.0.2-english.tar.gz
+    tar zxvf phpMyAdmin-4.5.0.2-english.tar.gz
 # sudo mv phpMyAdmin-4.5.0.2-english /usr/share/nginx/phpMyAdmin/public_html
 #sudo cd phpMyAdmin-4.5.0.2-english
-    sudo mv phpMyAdmin-4.5.0.2-english/* /usr/share/nginx/default/public_html
 
-    if [ -z "$php_my_admin_port" ]; then
-        echo "Set default port of 8181 for phpMyAdmin"
-        php_my_admin_port="8181"
-    fi
 
-    if [ -z "$php_my_admin_server" ]; then
-        echo "Set default server for phpMyAdmin"
-        php_my_admin_server="localhost"
-    fi
+#    if [ -z "$php_my_admin_port" ]; then
+#        echo "Set default port of 8181 for phpMyAdmin"
+#        php_my_admin_port="8181"
+#    fi
 
-    echo "phpMyAdmin Port: $php_my_admin_port"
-    echo "phpMyAdmin Server: $php_my_admin_server"
+#    if [ -z "$php_my_admin_server" ]; then
+#        echo "Set default server for phpMyAdmin"
+#        php_my_admin_server="localhost"
+#    fi
+
+#    echo "phpMyAdmin Port: $php_my_admin_port"
+#    echo "phpMyAdmin Server: $php_my_admin_server"
 
     echo "moving to subfolder of main site."
-    sudo mkdir -pv /usr/share/nginx/default/public_html/phpmyadmin
+    sudo mkdir -pv /usr/share/nginx/default/public_html/maria-admin
+    sudo mv phpMyAdmin-4.5.0.2-english/* /usr/share/nginx/default/public_html/maria-admin
 #sudo cp /usr/share/nginx/phpMyAdmin/public_html/phpMyAdmin-4.5.0.2-english /usr/share/nginx/default/public_html/phpmyadmin
-    sudo chown -R nginx:nginx /usr/share/nginx/default/public_html/phpmyadmin
+    sudo chown -R nginx:nginx /usr/share/nginx/default/public_html/maria-admin
 
     # Restart nginx to add the new conf file.
     sudo systemctl restart nginx
