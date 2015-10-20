@@ -246,6 +246,11 @@ else
     echo "phpMyAdmin Port: $php_my_admin_port"
     echo "phpMyAdmin Server: $php_my_admin_server"
 
+    echo "moving to subfolder of main site."
+    sudo mkdir -pv /usr/share/nginx/default/public_html/phpmyadmin
+    sudo cp /usr/share/nginx/default/public_html/phpmyadmin
+    sudo chown -R nginx:nginx /usr/share/nginx/default/public_html/phpmyadmin
+
     # Restart nginx to add the new conf file.
     sudo systemctl restart nginx
 fi
