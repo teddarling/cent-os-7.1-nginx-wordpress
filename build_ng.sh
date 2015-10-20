@@ -230,6 +230,9 @@ else
         echo "Set default server for phpMyAdmin"
         php_my_admin_server="localhost"
     fi
+
+    echo "phpMyAdmin Port: $php_my_admin_port"
+    echo "phpMyAdmin Server: $php_my_admin_server"
 fi
 
 
