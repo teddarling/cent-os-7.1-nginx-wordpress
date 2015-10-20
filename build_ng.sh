@@ -233,7 +233,7 @@ else
     sudo tar zxvf phpMyAdmin-4.5.0.2-english.tar.gz
 # sudo mv phpMyAdmin-4.5.0.2-english /usr/share/nginx/phpMyAdmin/public_html
 #sudo cp phpMyAdmin-4.5.0.2-english
-    sudo mv * /usr/share/nginx/phpMyAdmin/public_html
+    sudo mv * /usr/share/nginx/default/public_html
 
     if [ -z "$php_my_admin_port" ]; then
         echo "Set default port of 8181 for phpMyAdmin"
