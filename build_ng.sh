@@ -184,12 +184,7 @@ sudo systemctl restart nginx
 # Delete the build directory to clean up after ourself.
 sudo rm -rf $build_dir
 
-# set default value if MySQL is installed
-mysql_installed=0
-
-type mysql >/dev/null 2>&1 && mysql_installed=1 || mysql_installed=0
-
-
+# Install MariaDB if MySQL not installed
 if type mysql >/dev/null 2>&1; then
     echo "MySQL is installed"
 else
