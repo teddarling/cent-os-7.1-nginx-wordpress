@@ -20,6 +20,8 @@ cat << EOF
     -d      Directory to download and build NGINX
     -m      Password for MariaDB (MySQL)
     -n      NGINX version (EX: 1.8.0)
+    -p      Port to setup for phpMyAdmin
+    -q      Server name to setup for phpMyAdmin
     -u      User to create for NGINX
     ?       Show this message
 EOF
@@ -44,6 +46,12 @@ do
       ;;
     n) # Version of NGINX to download.
       nginx_version="nginx-$OPTARG"
+      ;;
+    p) # Port to install phpMyAdmin on
+      php_my_admin_port="$OPTARG"
+      ;;
+    q) # Server name for phpMyAdmin
+      php_my_admin_server="$OPTARG"
       ;;
     u) # User to assign to the build
       nginx_user="$OPTARG"
@@ -212,6 +220,16 @@ if [ -f /etc/nginx/conf.d/php_my_admin.conf ]; then
     echo "phpMyAdmin is installed"
 else
     echo "Installing phpMyAdmin"
+
+    if [ -z "$php_my_admin_port" ]; then
+        echo "Set default port of 8181 for phpMyAdmin"
+        php_my_admin_port="8181"
+    fi
+
+    if [ -z "$php_my_admin_server" ]; then
+        echo "Set default server for phpMyAdmin"
+        php_my_admin_server="localhost"
+    fi
 fi
 
 
