@@ -228,6 +228,11 @@ else
 
     sudo wget -O /etc/nginx/conf.d/php_my_admin.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/php_my_admin.conf
 
+    echo "Downloading phpMyAdmin and moving to web folder"
+    sudo wget https://files.phpmyadmin.net/phpMyAdmin/4.5.0.2/phpMyAdmin-4.5.0.2-english.tar.gz
+    sudo tar zxvf phpMyAdmin-4.5.0.2-english.tar.gz
+    sudo mv phpMyAdmin-4.5.0.2-english /usr/share/nginx/phpMyAdmin/public_html
+
     if [ -z "$php_my_admin_port" ]; then
         echo "Set default port of 8181 for phpMyAdmin"
         php_my_admin_port="8181"
