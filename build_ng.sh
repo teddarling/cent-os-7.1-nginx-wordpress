@@ -160,9 +160,13 @@ sudo mkdir -pv /usr/share/nginx/default/logs
 # Change ownership of public_html folder
 sudo chown nginx:nginx /usr/share/nginx/default/public_html
 
-# Run script to install PHP.
-echo "Installing PHP"
-echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/install_php.sh | sudo bash -s -- -u $nginx_user -`"
+# IF PHP not installed, install it.
+if type php >/dev/null 2>&1; then
+    echo "PHP Installed"
+else
+    echo "Installing PHP"
+    echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/install_php.sh | sudo bash -s -- -u $nginx_user -`"
+fi
 
 
 # Copy a default site nginx file
