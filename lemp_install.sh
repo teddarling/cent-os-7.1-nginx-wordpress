@@ -136,7 +136,7 @@ then
 
     echo "Saving to default server site."
 
-    "Restarting PHP-FPM"
+    echo "Restarting PHP-FPM"
     sudo systemctl restart php-fpm
 else
     echo "phpMyAdmin Installed"
