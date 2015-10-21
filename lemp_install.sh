@@ -135,6 +135,8 @@ then
     sudo yum -y install phpmyadmin
 
     echo "Saving to default server site."
+    sudo mkdir -pv /usr/share/nginx/html/maria-admin
+    sudo ln -s /usr/share/phpMyAdmin /usr/share/nginx/html/maria-admin
 
     echo "Restarting PHP-FPM"
     sudo systemctl restart php-fpm
