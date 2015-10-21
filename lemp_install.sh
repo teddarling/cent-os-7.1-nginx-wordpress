@@ -179,6 +179,10 @@ if ! wp --info >/dev/null 2>&1
 then
     echo "Installing WordPress CLI";
     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+
+    # Setting up wp-cli to be executable and moving to directory in path
+    sudo chmod +x wp-cli.phar
+    sudo mv wp-cli.phar /usr/local/bin/wp
 else
     echo "WordPress CLI already installed";
 fi
