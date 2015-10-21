@@ -161,6 +161,24 @@ then
     sudo yum -y update
 
     sudo yum --enablerepo=remi,remi-php56 -y update php\*
+
+    # Restart PHP-FPM and NGINX after updating PHP
+    sudo systemctl restart php-fpm
+    sudo systemctl restart nginx
+
+    # Change session permissions from apache to nginx
+    sudo chown nginx:nginx /var/lib/php/session
+    sudo chown nginx:nginx /var/lib/php/wsdlcache
 else
     echo "Good Version of PHP"
+fi
+
+# Install WordPress CLI so that we can manage WordPress form the command line,
+# if it's not already installed.
+if ! wp --info >/dev/null 2>&1
+then
+    echo "Installing WordPress CLI";
+    wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+else
+    echo "WordPress CLI already installed";
 fi
