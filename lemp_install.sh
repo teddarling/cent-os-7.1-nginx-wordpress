@@ -131,6 +131,8 @@ fi
 if [ ! -f /user/share/phpMyAdmin ]
 then
     echo "Installing phpMyAdmin"
+
+    sudo yum -y install phpmyadmin
 else
     echo "phpMyAdmin Installed"
 fi
