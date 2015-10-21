@@ -119,6 +119,9 @@ then
     sudo sed -i 's/user = apache/user = nginx/' /etc/php-fpm.d/www.conf
     sudo sed -i 's/group = apache/group = nginx/' /etc/php-fpm.d/www.conf
 
+    # Change session permissions from apache to nginx
+    sudo chown nginx:nginx /var/lib/php/session
+
     # Start and enable PHP-FPM
     echo "Starting and enabling PHP-FPM"
     sudo systemctl start php-fpm
