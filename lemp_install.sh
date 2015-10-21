@@ -131,7 +131,7 @@ else
 fi
 
 # Install phpMyAdmin if it's not installed
-if ! -f /user/share/phpMyAdmin
+if [ ! -d /usr/share/phpMyAdmin ]
 then
     echo "Installing phpMyAdmin"
 
