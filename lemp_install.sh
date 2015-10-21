@@ -133,6 +133,11 @@ then
     echo "Installing phpMyAdmin"
 
     sudo yum -y install phpmyadmin
+
+    echo "Saving to default server site."
+
+    "Restarting PHP-FPM"
+    sudo systemctl restart php-fpm
 else
     echo "phpMyAdmin Installed"
 fi
