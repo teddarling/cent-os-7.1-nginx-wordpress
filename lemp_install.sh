@@ -160,7 +160,7 @@ then
     sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
     sudo yum -y update
 
-    
+    sudo yum --enablerepo=remi,remi-php56 -y update php\*
 else
     echo "Good Version of PHP"
 fi
