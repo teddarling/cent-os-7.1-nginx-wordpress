@@ -147,3 +147,20 @@ else
     echo "phpMyAdmin Installed"
 fi
 
+# If we are using a version of php < 5.6, install 5.6 using remi repo
+# phpMyAdmin is installed before this as the Yum repo will try to install PHP 5.4,
+# So we let it, then upgrade.
+php_should_upgrade=`echo "<?php if(version_compare(PHP_VERSION, '5.6.0', '<')){echo 1;}else{echo 0;}" | php`
+
+if [ $php_should_upgrade -eq 1 ]
+then
+    echo "Upgrading PHP"
+
+    # Setup Remi repository for PHP
+    sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+    sudo yum -y update
+
+    
+else
+    echo "Good Version of PHP"
+fi
