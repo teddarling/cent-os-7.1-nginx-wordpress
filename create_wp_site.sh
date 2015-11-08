@@ -21,11 +21,13 @@
 #      a) domain_name.conf in /etc/nginx/conf.d folder
 #      b) create folder in /usr/share/nginx folder based on the domain name
 
-echo -p "Enter your domain name and press [ENTER]: " wp_domain
+echo -e "Enter your domain name and press [ENTER]: "
+read wp_domain
 
 #  Set the path to the current directory if the user didn't enter anything
 while [ "$wp_domain" != '' ]; do
-    echo -p "Enter your domain name and press [ENTER]: " wp_domain
+    echo -e "Enter your domain name and press [ENTER]: "
+    read wp_domain
 done
 
 echo "Domain is $wp_domain"
