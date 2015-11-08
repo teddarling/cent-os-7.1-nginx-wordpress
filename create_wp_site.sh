@@ -20,7 +20,7 @@ read wp_path
 
 echo "Entered Path is $wp_path"
 
-if [[ -z $wp_path ]]
+if [[ -z "$wp_path" ]]
 then
     $wp_path = pwd
 fi
