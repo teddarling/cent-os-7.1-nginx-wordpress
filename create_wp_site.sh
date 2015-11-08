@@ -20,23 +20,9 @@ read wp_path
 
 echo "Entered Path is $wp_path"
 
-if [ -z "${wp_path}" ]; then
+if [ -z "$wp_path" ]; then
 echo "VAR is unset or set to the empty string"
-fi
-if [ -z "${wp_path+set}" ]; then
-echo "VAR is unset"
-fi
-if [ -z "${wp_path-unset}" ]; then
-echo "VAR is set to the empty string"
-fi
-if [ -n "${wp_path}" ]; then
-echo "VAR is set to a non-empty string"
-fi
-if [ -n "${wp_path+set}" ]; then
-echo "VAR is set, possibly to the empty string"
-fi
-if [ -n "${wp_path-unset}" ]; then
-echo "VAR is either unset or set to a non-empty string"
+    wp_path=pwd
 fi
 
-#echo "Path is $wp_path"
+echo "Path is $wp_path"
