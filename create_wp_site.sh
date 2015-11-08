@@ -10,5 +10,16 @@
 #  in user will need to have sudo privileges. This is script is probably
 #  more specific to my own needs than to others, but is provided to
 #  others so that they can use and/or modify as needed.
+#
+#  Start by assuming that the user just wants to install WordPress to a
+#  directory on their server. Along the way, check that pre-requisites are
+#  installed. If they aren't, call some other scripts to install them.
 
-echo "Let's create a new WordPress Site."
+echo -e "Enter a path to setup WordPress (default is current directory)"
+read wp_path
+
+if [ $wp_path == '' ]; then
+    $wp_path = pwd
+fi
+
+echo $wp_path
