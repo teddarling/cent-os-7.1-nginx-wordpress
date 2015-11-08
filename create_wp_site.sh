@@ -15,8 +15,10 @@
 #  directory on their server. Along the way, check that pre-requisites are
 #  installed. If they aren't, call some other scripts to install them.
 
-echo -e "Enter a path to setup WordPress (default is current directory)"
+echo -n "Enter your install path and press [ENTER] (Blank for current directory): "
 read wp_path
+
+echo "Entered Path is $wp_path"
 
 test "$wp_path" == '' && ($wp_path = pwd;)
 
