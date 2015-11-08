@@ -20,7 +20,9 @@ read wp_path
 
 echo "Entered Path is $wp_path"
 
-test "$wp_path" == '' && ($wp_path = pwd;)
-
+if [[ -z $wp_path ]]
+then
+    $wp_path = pwd
+fi
 
 echo "Path is $wp_path"
