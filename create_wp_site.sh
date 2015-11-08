@@ -25,7 +25,7 @@ echo -e "Enter your domain name and press [ENTER]: "
 read wp_domain
 
 #  Set the path to the current directory if the user didn't enter anything
-while [ -z "$wp_path" ]; do
+while [ "$wp_path" != '' ]; do
     read wp_domain
 done
 
