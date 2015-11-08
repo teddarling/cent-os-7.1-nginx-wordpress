@@ -18,9 +18,7 @@
 echo -e "Enter a path to setup WordPress (default is current directory)"
 read wp_path
 
-if [[ "$wp_path" == "" ]]
-then
-    $wp_path = pwd
-fi
+test "$wp_path" == '' && ($wp_path = pwd;)
 
-echo "$wp_path"
+
+echo "Path is $wp_path"
