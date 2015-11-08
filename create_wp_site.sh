@@ -14,14 +14,19 @@
 #  Start by assuming that the user just wants to install WordPress to a
 #  directory on their server. Along the way, check that pre-requisites are
 #  installed. If they aren't, call some other scripts to install them.
+#
+#  So here is what we want to do when we want to create a new WordPress site.
+#
+#  1) Set the domain name of the site. Using this name, create the following
+#      a) domain_name.conf in /etc/nginx/conf.d folder
+#      b) create folder in /usr/share/nginx folder based on the domain name
 
-echo -e "Enter your install path and press [ENTER] (Blank for current directory): "
-read wp_path
+echo -e "Enter your domain name and press [ENTER]: "
+read wp_domain
 
-echo "Entered Path is $wp_path"
+#  Set the path to the current directory if the user didn't enter anything
+while [ -z "$wp_path" ]; do
+    read wp_domain
+done
 
-if [ -z "$wp_path" ]; then
-    wp_path=`pwd`
-fi
-
-echo "Path is $wp_path"
+echo "Domain is $wp_domain"
