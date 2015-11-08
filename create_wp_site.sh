@@ -22,7 +22,7 @@ echo "Entered Path is $wp_path"
 
 if [ -z "$wp_path" ]; then
 echo "VAR is unset or set to the empty string"
-    wp_path=pwd
+    wp_path=`pwd`
 fi
 
 echo "Path is $wp_path"
