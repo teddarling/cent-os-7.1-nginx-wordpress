@@ -8,7 +8,7 @@
 
 
 echo "Adding newer repo and updating"
-rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 sudo yum -y update
 
 echo "Checking for wget"
@@ -17,3 +17,8 @@ then
     echo "Installing wget"
     sudo yum -y install wget
 fi
+
+echo -e "Enter the version of NGINX that you would like to install"
+read nginx_version
+
+echo "Preparing to install NGINX Version $nginx_version"
