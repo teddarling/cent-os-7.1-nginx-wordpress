@@ -6,6 +6,9 @@
 #  Created by Theodore Darling on 11/23/15.
 #
 
+start_dir=$(pwd)
+echo "Setting start directory $start_dir"
+
 epel_version=$(rpm -qa | grep "epel")
 echo "EPEL VERSION: $epel_version"
 
@@ -51,6 +54,8 @@ mkdir -p "$build_folder"
 cd "$build_folder"
 
 echo "Moved to folder $(pwd)"
+
+cd "$start_dir"
 
 
 # Remove the build directory, it's no longer needed.
