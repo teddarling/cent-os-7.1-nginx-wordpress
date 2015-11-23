@@ -49,3 +49,5 @@ echo "Preparing to download NGINX from $nginx_url and cache purge from $cache_pu
 echo "Creating build folder"
 mkdir -p "$build_folder"
 cd "$build_folder"
+
+echo $(pwd)
