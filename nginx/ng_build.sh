@@ -67,7 +67,7 @@ fi
 
 echo "Downloading build files"
 wget "$nginx_url"
-wget "$cache_purge_file"
+wget "$cache_purge_url"
 
 echo "Extracting build files"
 sudo tar -xvzf "$nginx_file"
