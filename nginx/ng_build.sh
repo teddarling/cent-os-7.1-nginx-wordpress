@@ -50,4 +50,9 @@ echo "Creating build folder"
 mkdir -p "$build_folder"
 cd "$build_folder"
 
-echo $(pwd)
+echo "Moved to folder $(pwd)"
+
+
+# Remove the build directory, it's no longer needed.
+echo "Build complete. Removing the build directory"
+rm -rf "$build_folder"
