@@ -18,9 +18,19 @@ then
     sudo yum -y install wget
 fi
 
-echo -e "Enter the version of NGINX that you would like to install"
+# Get the version of NGINX to download.
+echo -e "Enter the version of NGINX that you would like to download and build"
 read nginx_version
 
-nginx_file="nginx-$nginx_version.tar.gz"
+# Get the version of cache purge to download
+echo -e "Enter the version of ngx_cache_purge that you wish to download and build"
+read cache_purge_version
 
-echo "Preparing to download NGINX Version $nginx_file"
+
+nginx_file="nginx-$nginx_version.tar.gz"
+nginx_url="nginx.org/download/$nginx_file"
+
+cache_purge_file="ngx_cache_purge-$cache_purge_version.tar.gz"
+cache_purge_url="labs.frickle.com/files/$cache_purge_file"
+
+echo "Preparing to download NGINX from $nginx_url and cache purge from $cache_purge_url"
