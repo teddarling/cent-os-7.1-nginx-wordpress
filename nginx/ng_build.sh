@@ -6,6 +6,8 @@
 #  Created by Theodore Darling on 11/23/15.
 #
 
+epel_version=$(rpm -qa | grep epel2)
+echo "EPEL VERSION: $epel_version"
 
 echo "Adding newer repo and updating"
 sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
