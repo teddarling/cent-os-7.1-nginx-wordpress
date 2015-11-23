@@ -33,6 +33,9 @@ read nginx_version
 echo -e "Enter the version of ngx_cache_purge that you wish to download and build"
 read cache_purge_version
 
+echo -e "Enter a name for your build folder"
+read build_folder
+
 
 nginx_file="nginx-$nginx_version.tar.gz"
 nginx_url="nginx.org/download/$nginx_file"
@@ -42,11 +45,7 @@ cache_purge_url="labs.frickle.com/files/$cache_purge_file"
 
 echo "Preparing to download NGINX from $nginx_url and cache purge from $cache_purge_url"
 
-echo "Moving to HOME directory"
-cd $HOME
-
-echo $(pwd)
-
 # Create a build folder and move into it.
 echo "Creating build folder"
-mkdir -p "$HOME/build_ng"
+mkdir -p "$build_folder"
+cd "$build_folder"
