@@ -45,6 +45,8 @@ echo "Preparing to download NGINX from $nginx_url and cache purge from $cache_pu
 echo "Moving to HOME directory"
 cd $HOME
 
+echo $(pwd)
+
 # Create a build folder and move into it.
 echo "Creating build folder"
 mkdir -p "$HOME/build_ng"
