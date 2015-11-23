@@ -47,4 +47,4 @@ cd $HOME
 
 # Create a build folder and move into it.
 echo "Creating build folder"
-mkdir -p build_ng
+mkdir -p "$HOME/build_ng"
