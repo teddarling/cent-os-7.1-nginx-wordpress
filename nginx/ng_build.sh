@@ -21,4 +21,6 @@ fi
 echo -e "Enter the version of NGINX that you would like to install"
 read nginx_version
 
-echo "Preparing to install NGINX Version $nginx_version"
+install_version="nginx-"+nginx_version
+
+echo "Preparing to install NGINX Version $install_version"
