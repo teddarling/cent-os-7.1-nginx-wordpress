@@ -21,6 +21,6 @@ fi
 echo -e "Enter the version of NGINX that you would like to install"
 read nginx_version
 
-install_version="nginx-$nginx_version"
+nginx_file="nginx-$nginx_version.tar.gz"
 
-echo "Preparing to install NGINX Version $install_version"
+echo "Preparing to download NGINX Version $nginx_file"
