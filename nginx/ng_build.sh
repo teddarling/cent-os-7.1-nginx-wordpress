@@ -6,7 +6,7 @@
 #  Created by Theodore Darling on 11/23/15.
 #
 
-epel_version=`rpm -qa | grep epel2`
+epel_version=$(yum repolist | grep "^*epel\|repo id")
 echo "EPEL VERSION: $epel_version"
 
 echo "Adding newer repo and updating"
