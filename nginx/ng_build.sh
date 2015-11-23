@@ -55,4 +55,4 @@ echo "Moved to folder $(pwd)"
 
 # Remove the build directory, it's no longer needed.
 echo "Build complete. Removing the build directory"
-rm -rf "$build_folder"
+sudo rm -rf "$build_folder"
