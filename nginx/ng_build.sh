@@ -39,6 +39,9 @@ read cache_purge_version
 echo -e "Enter a name for your build folder"
 read build_folder
 
+echo -e "Enter the username for your NGINX user"
+read nginx_user
+
 
 nginx_file="nginx-$nginx_version.tar.gz"
 nginx_url="nginx.org/download/$nginx_file"
@@ -55,9 +58,19 @@ cd "$build_folder"
 
 echo "Moved to folder $(pwd)"
 
+# Create the nginx user if it doesn't exist
+if ! id -u "$nginx_user" >/dev/null 2>&1; then
+    echo "Adding user $nginx_user"
+    useradd "$nginx_user"
+    usermod -s /sbin/nologin "$nginx_user"
+fi
+
+
+echo "Returning the the start directory $start_dir"
 cd "$start_dir"
 
 
 # Remove the build directory, it's no longer needed.
 echo "Build complete. Removing the build directory"
-sudo rm -rf "$build_folder"
+# Hide for now so that we can manually inspect the directories while testing out this script.
+#sudo rm -rf "$build_folder"
