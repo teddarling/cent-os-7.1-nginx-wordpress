@@ -9,9 +9,15 @@
 epel_version=$(rpm -qa | grep "epel")
 echo "EPEL VERSION: $epel_version"
 
-echo "Adding newer repo and updating"
-sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-sudo yum -y update
+# Test if EPEL 7.5 is installed. If not, then install it.
+if [[ "epel-release-7-5.noarch" = "$epel_version"]]
+then
+    echo "Adding newer repo and updating"
+    sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+    sudo yum -y update
+else
+    echo "EPEL Installed"
+fi
 
 echo "Checking for wget"
 if ! which wget > /dev/null 2>&1
