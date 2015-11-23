@@ -65,6 +65,14 @@ if ! id -u "$nginx_user" >/dev/null 2>&1; then
     usermod -s /sbin/nologin "$nginx_user"
 fi
 
+echo "Downloading build files"
+wget "$nginx_url"
+wget "$cache_purge_file"
+
+echo "Extracting build files"
+sudo tar -xvzf "$nginx_file"
+sudo tar -xvzf "$cache_purge_file"
+
 
 echo "Returning the the start directory $start_dir"
 cd "$start_dir"
