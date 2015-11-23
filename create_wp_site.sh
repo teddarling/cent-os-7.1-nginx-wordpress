@@ -20,13 +20,33 @@
 #  1) Set the domain name of the site. Using this name, create the following
 #      a) domain_name.conf in /etc/nginx/conf.d folder
 #      b) create folder in /usr/share/nginx folder based on the domain name
+#
+#  2) Enter a title for the site.
+#
+#  3) Enter an admin username, admin is not an option (security reasons).
+#
+#  4) Enter an admin email address.
+#
+#  5) Enter the admin password.
+#
+#  6) Enter the database name.
+#
+#  7) Enter the database user.
+#
+#  8) Enter the database password.
+#
+#  9) Enter the database host (default localhost).
+#
+#  10) Enter the database prefix (default wp_)
+#
+#  11) 
 
 echo -e "Enter your domain name and press [ENTER]: "
 read wp_domain
 
 #  Set the path to the current directory if the user didn't enter anything
 while [[ -z "$wp_domain" ]]; do
-    echo -e "Enter your domain name and press [ENTER]: "
+    echo -e "Blank is not an option. Please enter your domain name and press [ENTER]: "
     read wp_domain
 done
 

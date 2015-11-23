@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#  ng_build.sh
+#  
+#
+#  Created by Theodore Darling on 11/23/15.
+#
+
+
+echo "Adding newer repo and updating"
+rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+sudo yum -y update
+
+echo "Checking for wget"
+if ! which wget > /dev/null 2>&1
+then
+    echo "Installing wget"
+    sudo yum -y install wget
+fi
