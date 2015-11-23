@@ -18,7 +18,7 @@ else
     echo "EPEL Installed"
 fi
 
-echo "Checking for wget"
+echo "Checking for wget, if not found, install it."
 if ! which wget > /dev/null 2>&1
 then
     echo "Installing wget"
@@ -41,3 +41,10 @@ cache_purge_file="ngx_cache_purge-$cache_purge_version.tar.gz"
 cache_purge_url="labs.frickle.com/files/$cache_purge_file"
 
 echo "Preparing to download NGINX from $nginx_url and cache purge from $cache_purge_url"
+
+echo "Moving to HOME directory"
+cd $HOME
+
+# Create a build folder and move into it.
+echo "Creating build folder"
+mkdir -pv build_ng
