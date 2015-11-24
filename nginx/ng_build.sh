@@ -6,6 +6,13 @@
 #  Created by Theodore Darling on 11/23/15.
 #
 
+# If NGINX is already installed, stop it
+if ! which nginx > /dev/null 2>&1
+then
+    echo "Stopping existing NGINX service."
+    sudo systemctl stop nginx
+fi
+
 start_dir=$(pwd)
 echo "Setting start directory $start_dir"
 
@@ -92,13 +99,13 @@ sudo wget -O /lib/systemd/system/nginx.service https://raw.githubusercontent.com
 
 # Setup some directories that are needed.
 sudo mkdir -p /var/cache/nginx
-#sudo mkdir -p /var/cache/nginx/client_temp
-#sudo mkdir -p /var/cache/nginx/fastcgi_temp
-#sudo mkdir -p /var/cache/nginx/proxy_temp
-#sudo mkdir -p /var/cache/nginx/scgi_temp
-#sudo mkdir -p /var/cache/nginx/uwsgi_temp
-
 sudo chown nginx /var/cache/nginx
+
+# Reload some daemons
+sudo systemctl daemon-reload
+
+echo "Starting NGINX service."
+sudo systemctl start nginx
 
 echo "Returning the the start directory $start_dir"
 cd "$start_dir"
