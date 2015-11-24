@@ -176,8 +176,8 @@ then
 fi
 
 echo "Downloading and setting up WordPress"
-wp core download
-wp core config --dbname="$db_name" --dbuser="$db_user" --dbpass="$db_pass" --dbhost="$db_host" --dbprefix="$db_prefix"
+sudo -u nginx wp core download
+sudo -u nginx wp core config --dbname="$db_name" --dbuser="$db_user" --dbpass="$db_pass" --dbhost="$db_host" --dbprefix="$db_prefix"
 
 
 

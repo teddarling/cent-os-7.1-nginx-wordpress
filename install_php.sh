@@ -71,3 +71,4 @@ sudo systemctl restart nginx
 
 # Setup to start automatically on server reboot
 sudo systemctl enable php-fpm
+
