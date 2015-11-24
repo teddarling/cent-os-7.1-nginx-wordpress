@@ -153,6 +153,12 @@ fi
 echo "Moving to WordPress install dir $site_dir"
 cd "$site_dir"
 
+if wp ; then
+    echo "Command succeeded"
+else
+    echo "Command failed"
+fi
+
 
 # Restart nginx so that we can access the site.
 echo "Restarting NGINX."
