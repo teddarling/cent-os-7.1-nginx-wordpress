@@ -60,6 +60,10 @@ sudo wget -O "$site_conf" https://raw.githubusercontent.com/teddarling/cent-os-7
 # Change the name of the
 sudo sed -i 's/replace_server/'$wp_domain'/g' "$site_conf"
 
+# Create the public_html directory for the domain entered
+sudo mkdir -p "/var/www/$wp_domain/public_html"
+
+
 # Create the log directory for the name
 sudo mkdir -p "/var/www/$wp_domain/logs"
 
