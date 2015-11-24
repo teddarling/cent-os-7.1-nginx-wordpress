@@ -46,8 +46,10 @@ read cache_purge_version
 echo -e "Enter a name for your build folder"
 read build_folder
 
-echo -e "Enter the username for your NGINX user"
-read nginx_user
+# echo -e "Enter the username for your NGINX user"
+# read nginx_user
+
+nginx_user="nginx"
 
 nginx_folder="nginx-$nginx_version"
 nginx_file="$nginx_folder.tar.gz"
@@ -119,7 +121,7 @@ sudo mkdir -p /var/www/default/logs
 sudo cp -R /etc/nginx/html/* /var/www/default/public_html
 
 # Set permissions on that folder and everything under it to nginx user
-sudo chown -R /var/www/default/public_html
+sudo chown -R nginx:nginx /var/www/default/public_html
 
 # Reload some daemons
 sudo systemctl daemon-reload
