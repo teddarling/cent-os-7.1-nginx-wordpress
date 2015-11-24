@@ -132,4 +132,4 @@ cd "$start_dir"
 # Remove the build directory, it's no longer needed.
 echo "Build complete. Removing the build directory"
 # Hide for now so that we can manually inspect the directories while testing out this script.
-#sudo rm -rf "$build_folder"
+sudo rm -rf "$build_folder"
