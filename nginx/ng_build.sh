@@ -95,7 +95,17 @@ echo "Configure NGINX build"
 echo "Making NGINX build"
 make && sudo make install
 
+# Save our NGINX service file so that the service can be started.
 sudo wget -O /lib/systemd/system/nginx.service https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/nginx.service
+
+# Create directory for our individual site conf files.
+sudo mkdir -p /etc/nginx/nginx.d
+
+# Set our own default nginx.conf file and use our own settings.
+sudo wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/nginx.conf
+
+# Set our own default site conf file.
+sudo wget -O /etc/nginx/nginx.d/default.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/default.conf
 
 # Setup some directories that are needed.
 sudo mkdir -p /var/cache/nginx
