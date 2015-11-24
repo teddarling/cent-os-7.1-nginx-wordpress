@@ -101,11 +101,18 @@ sudo wget -O /lib/systemd/system/nginx.service https://raw.githubusercontent.com
 sudo mkdir -p /var/cache/nginx
 sudo chown nginx /var/cache/nginx
 
+# Create a directory for a default website
+sudo mkdir -p /var/www/default/public_html
+
+# Copy files from Web directory created by build to default dir
+sudo cp -R /etc/nginx/html/* /var/www/default/public_html
+
 # Reload some daemons
 sudo systemctl daemon-reload
 
-echo "Starting NGINX service."
+echo "Starting NGINX service and setting up auto start."
 sudo systemctl start nginx
+sudo systemctl enable nginx
 
 echo "Returning the the start directory $start_dir"
 cd "$start_dir"
