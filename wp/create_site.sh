@@ -165,18 +165,17 @@ cd "$site_dir"
 
 echo $(pwd)
 
+# If php isn't installed, then wp command won't work, so set an error.
+if ! which php-fpm > /dev/null 2>&1
+then
+    echo "Please ensure that PHP is installed or in your path."
+    exit 1
+fi
+
 echo "Downloading and setting up WordPress"
 wp core download
 wp core config --dbname="$db_name" --dbuser="$db_user" --dbpass="$db_pass" --dbhost="$db_host" --dbprefix="$db_prefix"
 
-
-
-#if wp ; then
-#    echo "Command succeeded"
-#else
-#    echo "Please ensure that PHP is installed and accessible from the users PATH."
-#    exit 1
-#fi
 
 
 # Restart nginx so that we can access the site.
