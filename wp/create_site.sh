@@ -67,3 +67,6 @@ sudo mkdir -p "/var/www/$wp_domain/public_html"
 # Create the log directory for the name
 sudo mkdir -p "/var/www/$wp_domain/logs"
 
+# Restart nginx so that we can access the site.
+sudo systemctl restart nginx
+
