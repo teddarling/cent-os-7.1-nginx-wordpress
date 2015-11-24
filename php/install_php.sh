@@ -59,7 +59,7 @@ sudo chown nginx:nginx /var/lib/php/session
 sed -i s'/listen = 127.0.0.1:9000/listen = \/var\/run\/php-main.socket/' /etc/php-fpm.d/www.conf
 sed -i s'/;listen.owner = nobody/listen.owner = nginx/' /etc/php-fpm.d/www.conf
 sed -i s'/;listen.group = nobody/listen.group = nginx/' /etc/php-fpm.d/www.conf
-sed -i s'/;listen.mode = 0660/listen.mode = 0660/' /etc/php-fpm.d/www
+sed -i s'/;listen.mode = 0660/listen.mode = 0660/' /etc/php-fpm.d/www.conf
 
 # Start and enable PHP-FPM
 echo "Starting and enabling PHP-FPM"
