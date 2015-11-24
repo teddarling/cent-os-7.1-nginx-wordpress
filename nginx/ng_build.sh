@@ -113,6 +113,7 @@ sudo chown nginx /var/cache/nginx
 
 # Create a directory for a default website
 sudo mkdir -p /var/www/default/public_html
+sudo mkdir -p /var/www/default/logs
 
 # Copy files from Web directory created by build to default dir
 sudo cp -R /etc/nginx/html/* /var/www/default/public_html
