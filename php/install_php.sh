@@ -19,3 +19,6 @@ if [ "$epel_version" != "epel-release-7-5.noarch" ]; then
 else
     echo "EPEL Installed"
 fi
+
+# Install Webtatic PHP
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
