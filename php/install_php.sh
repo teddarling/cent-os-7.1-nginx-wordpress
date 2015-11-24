@@ -18,8 +18,8 @@ if [ "$epel_version" != "epel-release-7-5.noarch" ]; then
     sudo yum -y update
 else
     echo "EPEL Installed"
-fi on 11/24/15.
-#
+fi
+
 
 # Get the epel install version
 webtatic_version=$(rpm -qa | grep "webtatic")
@@ -33,5 +33,3 @@ if [ "$webtatic_version" != "webtatic-release-7-3.noarch" ]; then
 else
     echo "Webtatic Installed"
 fi
-
-# Install Webtatic PHP
