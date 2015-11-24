@@ -7,7 +7,7 @@
 #
 
 # If NGINX is already installed, stop it
-if ! which nginx > /dev/null 2>&1
+if which nginx > /dev/null 2>&1
 then
     echo "Stopping existing NGINX service."
     sudo systemctl stop nginx
