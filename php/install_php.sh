@@ -6,6 +6,11 @@
 #  Created by Theodore Darling on 11/24/15.
 #
 
+# Get the epel install version
+epel_version=$(rpm -qa | grep "epel")
+echo "EPEL VERSION: $epel_version"
+
+
 # Test if EPEL 7.5 is installed. If not, then install it.
 if [ "$epel_version" != "epel-release-7-5.noarch" ]; then
     echo "Adding newer repo and updating"
