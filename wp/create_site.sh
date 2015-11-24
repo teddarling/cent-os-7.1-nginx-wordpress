@@ -75,6 +75,15 @@ fi
 
 echo "Site Title: $site_title"
 
+echo -e "Enter the username for your site (DO NOT USE admin)"
+read site_username
+
+while [[ -z "$site_username" || ("admin" == "$site_username") ]]; do
+    echo -e "Enter the username for your site (DO NOT USE admin)"
+    read site_username
+done
+
+
 
 # Restart nginx so that we can access the site.
 echo "Restarting NGINX."
