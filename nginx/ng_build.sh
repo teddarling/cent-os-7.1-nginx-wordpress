@@ -99,7 +99,7 @@ make && sudo make install
 sudo wget -O /lib/systemd/system/nginx.service https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/nginx.service
 
 # Create directory for our individual site conf files.
-sudo mkdir -p /etc/nginx/nginx.d
+sudo mkdir -p /etc/nginx/conf.d
 
 # Set our own default nginx.conf file and use our own settings.
 sudo wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/nginx.conf
