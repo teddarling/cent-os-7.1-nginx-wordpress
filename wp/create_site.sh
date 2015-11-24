@@ -122,6 +122,16 @@ while [[ -z "$db_name" ]]; do
     read db_name
 done
 
+# Get the database name for this site.
+echo -e "Enter the database prefix for this site (default wp_)"
+read db_prefix
+
+# Set db_prefix to WordPress default of wp_ if user didn't enter anything.
+if [[ -z "$db_prefix" ]]; then
+    db_prefix="wp_"
+fi
+
+
 # Get an email for the admin user.
 echo -e "Enter the database user for this site"
 read db_user
@@ -153,11 +163,20 @@ fi
 echo "Moving to WordPress install dir $site_dir"
 cd "$site_dir"
 
-if wp ; then
-    echo "Command succeeded"
-else
-    echo "Command failed"
-fi
+echo $(pwd)
+
+echo "Downloading and setting up WordPress"
+wp core download
+wp core config --dbname="$db_name" --dbuser="$db_user" --dbpass="$db_pass" --dbhost="$db_host" --dbprefix="$db_prefix"
+
+
+
+#if wp ; then
+#    echo "Command succeeded"
+#else
+#    echo "Please ensure that PHP is installed and accessible from the users PATH."
+#    exit 1
+#fi
 
 
 # Restart nginx so that we can access the site.
