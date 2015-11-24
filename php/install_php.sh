@@ -38,7 +38,7 @@ fi
 if ! which php-fpm > /dev/null 2>&1
 then
     echo "Installing PHP-FPM"
-    sudo yum -y install php70w php70w-mysql php70w-fpm php70w-cli php70w-common php70w-bcmath php70w-gd php70w-imap php70w-mbstring php70w-mbstring php70w-opcache php70w-pear php70w-pgsql php70w-pspell php70w-soap php70w-tidy php70w-xml php70w-xmlrpc
+    sudo yum -y install --enablerepo=webtatic-testing php70w php70w-mysql php70w-fpm php70w-cli php70w-common php70w-bcmath php70w-gd php70w-imap php70w-mbstring php70w-mbstring php70w-opcache php70w-pear php70w-pgsql php70w-pspell php70w-soap php70w-tidy php70w-xml php70w-xmlrpc
 
     # Secure PHP a little here.
     sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
