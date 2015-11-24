@@ -33,3 +33,4 @@ if [ "$webtatic_version" != "webtatic-release-7-3.noarch" ]; then
 else
     echo "Webtatic Installed"
 fi
+
