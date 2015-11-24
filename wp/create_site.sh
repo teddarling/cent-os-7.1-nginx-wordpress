@@ -51,3 +51,7 @@ while [[ -z "$wp_domain" ]]; do
 done
 
 echo "Domain is $wp_domain"
+
+# Copy the config file for this domain into a conf file for NGINX
+sudo wget -O "/etc/nginx/conf.d/$wp_domain.conf" https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/wp/site_template.conf
+
