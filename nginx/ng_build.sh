@@ -105,7 +105,7 @@ sudo mkdir -p /etc/nginx/conf.d
 sudo wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/nginx.conf
 
 # Set our own default site conf file.
-sudo wget -O /etc/nginx/nginx.d/default.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/default.conf
+sudo wget -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/default.conf
 
 # Setup some directories that are needed.
 sudo mkdir -p /var/cache/nginx
