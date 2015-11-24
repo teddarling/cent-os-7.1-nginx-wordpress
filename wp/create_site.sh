@@ -157,7 +157,7 @@ then
     echo "Installing WP CLI"
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar
     chmod +x wp-cli-nightly.phar
-    sudo mv wp-cli-nightly.phar /usr/local/sbin/wp
+    sudo mv wp-cli-nightly.phar /usr/sbin/wp
 fi
 
 echo "Moving to WordPress install dir $site_dir"
