@@ -50,7 +50,7 @@ while [[ -z "$wp_domain" ]]; do
     read wp_domain
 done
 
-echo "Domain is $wp_domain"
+echo "Setting up the configuration for $wp_domain"
 
 site_conf="/etc/nginx/conf.d/$wp_domain.conf"
 
@@ -63,10 +63,20 @@ sudo sed -i 's/replace_server/'$wp_domain'/g' "$site_conf"
 # Create the public_html directory for the domain entered
 sudo mkdir -p "/var/www/$wp_domain/public_html"
 
-
 # Create the log directory for the name
 sudo mkdir -p "/var/www/$wp_domain/logs"
 
+echo -e "Enter a title for your site (Default is the $wp_domain)"
+read site_title
+
+if [[ -z "$site_title" ]]; then
+    site_title="$wp_domain"
+fi
+
+echo "Site Title: $site_title"
+
+
 # Restart nginx so that we can access the site.
+echo "Restarting NGINX."
 sudo systemctl restart nginx
 
