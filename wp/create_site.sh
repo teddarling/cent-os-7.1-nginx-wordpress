@@ -101,7 +101,44 @@ while [[ -z "$site_password" ]]; do
     read site_password
 done
 
-echo "Email: $site_email - Password: $site_password"
+# Get database data so that we can setup the db
+echo -e "Enter the database host (Default localhost) for this site"
+read db_host
+
+if [[ -z "$db_host" ]]; then
+    db_host="localhost"
+fi
+
+
+
+# Get the database name for this site.
+echo -e "Enter the database name for this site"
+read db_name
+
+while [[ -z "$db_name" ]]; do
+    echo -e "Invalid Entry. Enter the database name for this site"
+    read db_name
+done
+
+# Get an email for the admin user.
+echo -e "Enter the database user for this site"
+read db_user
+
+while [[ -z "$db_user" ]]; do
+    echo -e "Invalid Entry. Enter the database user for this site"
+    read db_user
+done
+
+# Get an email for the admin user.
+echo -e "Enter the database password for this site"
+read db_pass
+
+while [[ -z "$db_pass" ]]; do
+    echo -e "Invalid Entry. Enter the database password for this site"
+    read db_pass
+done
+
+echo "$db_host, $db_name, $db_user, $db_pass"
 
 
 # Restart nginx so that we can access the site.
