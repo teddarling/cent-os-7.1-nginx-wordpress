@@ -138,7 +138,15 @@ while [[ -z "$db_pass" ]]; do
     read db_pass
 done
 
-echo "$db_host, $db_name, $db_user, $db_pass"
+# Check if WP CLI installed, if not, install it.
+echo "Checking for wpcli, if not found, install it."
+if ! which wp > /dev/null 2>&1
+then
+    echo "Installing WP CLI"
+    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar
+    chmod +x wp-cli.phar
+    sudo mv wp-cli.phar /usr/local/bin/wp
+fi
 
 
 # Restart nginx so that we can access the site.
