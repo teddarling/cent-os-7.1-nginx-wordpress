@@ -65,6 +65,9 @@ site_dir="/var/www/$wp_domain/public_html"
 # Create the public_html directory for the domain entered
 sudo mkdir -p "$site_dir"
 
+# Set owner of site directory to nginx
+sudo chown -R "$site_dir"
+
 # Create the log directory for the name
 sudo mkdir -p "/var/www/$wp_domain/logs"
 

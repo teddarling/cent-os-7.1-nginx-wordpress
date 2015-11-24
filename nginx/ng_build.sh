@@ -118,6 +118,9 @@ sudo mkdir -p /var/www/default/logs
 # Copy files from Web directory created by build to default dir
 sudo cp -R /etc/nginx/html/* /var/www/default/public_html
 
+# Set permissions on that folder and everything under it to nginx user
+sudo chown -R /var/www/default/public_html
+
 # Reload some daemons
 sudo systemctl daemon-reload
 
