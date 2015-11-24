@@ -88,6 +88,8 @@ echo "Configure NGINX build"
 echo "Making NGINX build"
 make && sudo make install
 
+sudo wget -O /lib/systemd/system/nginx.service https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/nginx.service
+
 echo "Returning the the start directory $start_dir"
 cd "$start_dir"
 
