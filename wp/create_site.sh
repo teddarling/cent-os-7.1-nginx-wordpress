@@ -66,6 +66,7 @@ sudo mkdir -p "/var/www/$wp_domain/public_html"
 # Create the log directory for the name
 sudo mkdir -p "/var/www/$wp_domain/logs"
 
+# Get the title of the site (used by WordPress.
 echo -e "Enter a title for your site (Default is the $wp_domain)"
 read site_title
 
@@ -73,16 +74,34 @@ if [[ -z "$site_title" ]]; then
     site_title="$wp_domain"
 fi
 
-echo "Site Title: $site_title"
-
+# Get a username for the site. Disallow 'admin' as it lowers security.
 echo -e "Enter the username for your site (DO NOT USE admin)"
 read site_username
 
 while [[ -z "$site_username" || ("admin" == "$site_username") ]]; do
-    echo -e "Enter the username for your site (DO NOT USE admin)"
+    echo -e "Invalid Entry. Please enter the username for your site (DO NOT USE admin)"
     read site_username
 done
 
+# Get an email for the admin user.
+echo -e "Enter the email address of the admin user"
+read site_email
+
+while [[ -z "$site_email" ]]; do
+    echo -e "Invalid Entry. Please enter the email for the admin user"
+    read Enter
+done
+
+# Get an email for the admin user.
+echo -e "Enter the password for the admin user"
+read site_password
+
+while [[ -z "$site_password" ]]; do
+    echo -e "Invalid Entry. Please enter the password for the admin user"
+    read site_password
+done
+
+echo "Email: $site_email - Password: $site_password"
 
 
 # Restart nginx so that we can access the site.
