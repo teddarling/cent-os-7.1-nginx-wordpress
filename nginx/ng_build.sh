@@ -90,6 +90,14 @@ make && sudo make install
 
 sudo wget -O /lib/systemd/system/nginx.service https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/nginx/nginx.service
 
+# Setup some directories that are needed.
+sudo mkdir -p /var/cache/nginx
+sudo mkdir -p /var/cache/nginx/client_temp
+sudo mkdir -p /var/cache/nginx/fastcgi_temp
+sudo mkdir -p /var/cache/nginx/proxy_temp
+sudo mkdir -p /var/cache/nginx/scgi_temp
+sudo mkdir -p /var/cache/nginx/uwsgi_temp
+
 echo "Returning the the start directory $start_dir"
 cd "$start_dir"
 
