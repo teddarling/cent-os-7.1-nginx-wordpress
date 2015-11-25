@@ -6,8 +6,8 @@
 #  Created by Theodore Darling on 11/25/15.
 #
 
-echo -e "Enter the password you wish to use for root"
-read maria_password
+#echo -e "Enter the password you wish to use for root"
+#read maria_password
 
 # Install MariaDB if it isn't already installed.
 if ! which mysql > /dev/null 2>&1
@@ -26,7 +26,7 @@ then
 
     # Secure MariaDB
     echo "Preparing to secure MySQL"
-    echo "`curl -s https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/mysql/secure_maria_db.sh | sudo bash -s -- -m $maria_password -`"
+    mysql_secure_installation
 else
     echo "Maria DB is already installed"
 fi
