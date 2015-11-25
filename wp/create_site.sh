@@ -41,6 +41,22 @@
 #
 #  11)
 
+# Move these errors to the top, why mess with everything else otherwise.
+# If php isn't installed, then wp command won't work, so set an error.
+if ! which php-fpm > /dev/null 2>&1
+then
+echo "Please ensure that PHP is installed or in your path."
+exit 1
+fi
+
+# If mysql isn't installed, then wp config won't work, so set an error.
+if ! which mysql > /dev/null 2>&1
+then
+echo "Please ensure that a mysql client is installed or in your path."
+exit 1
+fi
+
+
 echo -e "Enter your domain name and press [ENTER]: "
 read wp_domain
 
@@ -171,13 +187,6 @@ echo "Moving to WordPress install dir $site_dir"
 cd "$site_dir"
 
 echo $(pwd)
-
-# If php isn't installed, then wp command won't work, so set an error.
-if ! which php-fpm > /dev/null 2>&1
-then
-    echo "Please ensure that PHP is installed or in your path."
-    exit 1
-fi
 
 echo "Downloading and setting up WordPress"
 sudo -u nginx wp core download

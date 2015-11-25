@@ -123,6 +123,12 @@ sudo cp -R /etc/nginx/html/* /var/www/default/public_html
 # Set permissions on that folder and everything under it to nginx user
 sudo chown -R nginx:nginx /var/www/default/public_html
 
+
+
+# Set security context for httpd
+sudo semanage fcontext --add --type httpd_sys_content_t "/var/www/default(/.*)?"
+sudo restorecon -Rv /var/www
+
 # Reload some daemons
 sudo systemctl daemon-reload
 
