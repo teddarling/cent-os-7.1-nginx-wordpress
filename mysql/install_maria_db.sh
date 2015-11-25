@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #  install_maria_db.sh
 #  
@@ -12,6 +12,10 @@ read maria_password
 # Install MariaDB if it isn't already installed.
 if ! which mysql > /dev/null 2>&1
 then
+    sudo wget -O /etc/yum.repos.d/MariaDB.repo https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/MariaDB.repo
+
+    sudo yum -y update
+
     echo "Installing MariaDB"
     sudo yum -y install mariadb-server mariadb
 
