@@ -71,6 +71,10 @@ sudo chown -R nginx:nginx "$site_dir"
 # Create the log directory for the name
 sudo mkdir -p "/var/www/$wp_domain/logs"
 
+# Set security context for httpd
+sudo semanage fcontext --add --type httpd_sys_content_t "/var/www/$wp_domain(/.*)?"
+sudo restorecon -Rv /var/www
+
 # Get the title of the site (used by WordPress.
 echo -e "Enter a title for your site (Default is the $wp_domain)"
 read site_title
