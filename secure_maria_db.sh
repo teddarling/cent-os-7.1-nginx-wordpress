@@ -82,7 +82,7 @@ send \"y\r\"
 expect \"Reload privilege tables now?\"
 send \"y\r\"
 
-expect eof
+expect EOF
 ")
 
 echo "$SECURE_MYSQL"
