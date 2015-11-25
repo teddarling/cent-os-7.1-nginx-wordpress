@@ -192,6 +192,8 @@ echo "Downloading and setting up WordPress"
 sudo -u nginx wp core download
 sudo -u nginx wp core config --dbname="$db_name" --dbuser="$db_user" --dbpass="$db_pass" --dbhost="$db_host" --dbprefix="$db_prefix"
 
+sudo -u nginx wp core install --url="$wp_domain" --title="$site_title" --admin_user="$site_username" --admin_password="$site_password" --admin_email="$site_email"
+
 
 
 # Restart nginx so that we can access the site.
