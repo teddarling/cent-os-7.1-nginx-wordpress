@@ -65,3 +65,6 @@ sed -i s'/;listen.mode = 0660/listen.mode = 0660/' /etc/php-fpm.d/www.conf
 echo "Starting and enabling PHP-FPM"
 sudo systemctl start php-fpm
 sudo systemctl enable php-fpm
+
+echo "Copying the PHP shared config file to nginx config folder"
+sudo wget -O /etc/nginx/php.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/php/php.conf
