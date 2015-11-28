@@ -75,7 +75,7 @@ sudo wget -O "$site_conf" https://raw.githubusercontent.com/teddarling/cent-os-7
 
 # If shared WP config file doesn't exist, copy it to server.
 echo "Checking for /etc/nginx/wp.conf"
-if [ ! -f /etc/nginx/wp.conf ]
+if [[ ! -f /etc/nginx/wp.conf ]]
 then
     echo "Copying shared wp.conf file to server."
     sudo wget -O /etc/nginx/wp.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/wp/wp.conf
