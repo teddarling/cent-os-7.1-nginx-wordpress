@@ -45,15 +45,15 @@
 # If php isn't installed, then wp command won't work, so set an error.
 if ! which php-fpm > /dev/null 2>&1
 then
-echo "Please ensure that PHP is installed or in your path."
-exit 1
+    echo "Please ensure that PHP is installed or in your path."
+    exit 1
 fi
 
 # If mysql isn't installed, then wp config won't work, so set an error.
 if ! which mysql > /dev/null 2>&1
 then
-echo "Please ensure that a mysql client is installed or in your path."
-exit 1
+    echo "Please ensure that a mysql client is installed or in your path."
+    exit 1
 fi
 
 
@@ -76,18 +76,22 @@ sudo wget -O "$site_conf" https://raw.githubusercontent.com/teddarling/cent-os-7
 # If shared WP config file doesn't exist, copy it to server.
 if [ ! -f /etc/nginx/wp.conf ]
 then
+    echo "Copying shared wp.conf file to server."
     sudo wget -O /etc/nginx/wp.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/wp/wp.conf
 fie
 
 # Change the name of the
+echo "Replacing text with domain name"
 sudo sed -i 's/replace_server/'$wp_domain'/g' "$site_conf"
 
 site_dir="/var/www/$wp_domain/public_html"
 
 # Create the public_html directory for the domain entered
+echo "Creating web folder for $wp_domain"
 sudo mkdir -p "$site_dir"
 
 # Set owner of site directory to nginx
+echo "Changing ownership of $site_dir"
 sudo chown -R nginx:nginx "$site_dir"
 
 # Create the log directory for the name
