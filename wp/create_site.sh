@@ -79,7 +79,7 @@ if [[ ! -f /etc/nginx/wp.conf ]]
 then
     echo "Copying shared wp.conf file to server."
     sudo wget -O /etc/nginx/wp.conf https://raw.githubusercontent.com/teddarling/cent-os-7.1-nginx-wordpress/master/wp/wp.conf
-fie
+fi
 
 # Change the name of the
 echo "Replacing text with domain name"
